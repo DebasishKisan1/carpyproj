@@ -1,11 +1,9 @@
-from abc import ABC
+from engine.battery import Battery
 
-from car import Car
-
-class SpindlerBattery(Car):
+class SpindlerBattery(Battery):
     def __init__(self, last_service_date, current_date):
-        self.last_service_date = last_service_date.year
-        self.current_date = current_date.year
+        self.last_service_date = last_service_date
+        self.current_date = current_date
 
     def battery_should_be_serviced(self):
         return self.current_date - self.last_service_date < 2
