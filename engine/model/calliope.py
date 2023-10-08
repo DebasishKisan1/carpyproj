@@ -4,6 +4,9 @@ from engine.capulet_engine import CapuletEngine
 
 
 class Calliope(CapuletEngine):
+    def __init__(self, engine,battery):
+        self.engine = engine
+        self.battery = battery
     def needs_service(self):
         service_threshold_date = self.last_service_date.replace(year=self.last_service_date.year + 2)
         if service_threshold_date < datetime.today().date() or self.engine_should_be_serviced():
